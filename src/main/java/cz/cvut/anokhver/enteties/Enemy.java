@@ -1,6 +1,7 @@
 package cz.cvut.anokhver.enteties;
 
 import cz.cvut.anokhver.items.Item;
+import cz.cvut.anokhver.level.Coordinates;
 
 public class Enemy {
 
@@ -12,6 +13,7 @@ public class Enemy {
     private float health;
     private float speed_damage;
     private boolean live = true;
+    private Coordinates position;
 
     public Enemy(String name, float damage, float walkSpeed, Item dropChance, float seeRadius) {
         this.name = name;
@@ -68,5 +70,13 @@ public class Enemy {
 
     public float getSeeRadius() {
         return seeRadius;
+    }
+
+    public Coordinates getPosition() {
+        return position;
+    }
+
+    public void setPosition(Coordinates position) {
+        this.position = position;
     }
 }

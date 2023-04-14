@@ -1,4 +1,5 @@
 package cz.cvut.anokhver.enteties;
+import cz.cvut.anokhver.level.Coordinates;
 import cz.cvut.anokhver.menu.Inventory;
 
 public class Player{
@@ -9,13 +10,21 @@ public class Player{
     private Integer coins = 0;
     private boolean live = true;
     private final Inventory inventory;
-
+    private Coordinates position;
     public Player(float damage, float walkSpeed, float health, float speedDamage, Inventory inventory) {
         this.damage = damage;
         walk_speed = walkSpeed;
         this.health = health;
         speed_damage = speedDamage;
         this.inventory = inventory;
+    }
+
+    public Player() {
+        this.damage = 20;
+        walk_speed = 5;
+        this.health = 100;
+        speed_damage = 10;
+        this.inventory = new Inventory();
     }
 
     public float getDamage() {
@@ -68,5 +77,13 @@ public class Player{
 
     public void setLive(boolean live) {
         this.live = live;
+    }
+
+    public Coordinates getPosition() {
+        return position;
+    }
+
+    public void setPosition(Coordinates position) {
+        this.position = position;
     }
 }
