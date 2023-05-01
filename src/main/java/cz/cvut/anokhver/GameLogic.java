@@ -1,15 +1,16 @@
 package cz.cvut.anokhver;
 
 import cz.cvut.anokhver.contollers.Contoller;
-import cz.cvut.anokhver.contollers.GameMenuController;
 import cz.cvut.anokhver.contollers.MainMenuController;
-import cz.cvut.anokhver.menu.InGameMenu;
-import cz.cvut.anokhver.menu.MainMenu;
-import javafx.scene.Group;
-import javafx.stage.Stage;
+import cz.cvut.anokhver.level.Level;
 
+
+import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.stage.Stage;
 import java.util.Dictionary;
 import java.util.Hashtable;
+import javafx.scene.layout.Pane;
 
 public class GameLogic {
 
@@ -32,20 +33,36 @@ public class GameLogic {
     public void setMainMenu(){
         state = controllers.get("MainMenu");
         stage.setScene(state.getView().getScene());
+    }
+
+    public static void new_game(){
+
+        Scene currentScene = stage.getScene();
+
+        // If there is a current scene, hide it before setting the new scene
+        if (currentScene != null) {
+            Stage currentStage = (Stage) currentScene.getWindow();
+            currentStage.hide();
+        }
+
+        Level first_level = new Level(1);
+
+        Canvas canvas = new Canvas(800, 600);
+        //first_level.drawTileMap(canvas);
+
+        Pane pane = new Pane(canvas);
+
+        Scene scene = new Scene(pane);
+        stage.setScene(scene);
+
+// Show the Stage
+        stage.show();
+
+    }
+    public static void load_game(){
+        System.out.println("LOADING GAME");
 
     }
 
-    public void new_game(){
-
-    }
-    public void waiting(){
-
-    }
-    public void createEnemy(){
-
-    }
-    public void createPlayer(){
-
-    }
 
 }

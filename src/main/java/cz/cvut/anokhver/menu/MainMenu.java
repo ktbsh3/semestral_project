@@ -44,6 +44,18 @@ public class MainMenu extends Menu {
 
     }
 
+    public Button getExitButton() {
+        return exitButton;
+    }
+
+    public Button getStartButton() {
+        return startButton;
+    }
+
+    public Button getLoadButton() {
+        return loadButton;
+    }
+
     @Override
     public void init() {
         new MainMenu();

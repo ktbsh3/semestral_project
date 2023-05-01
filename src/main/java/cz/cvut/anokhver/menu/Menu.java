@@ -7,6 +7,5 @@ import javafx.scene.layout.VBox;
 public abstract class Menu extends VBox {
     protected Scene scene;
     protected Contoller controller;
-
     public abstract void init();
 }

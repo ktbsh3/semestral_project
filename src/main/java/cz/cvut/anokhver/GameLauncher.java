@@ -14,7 +14,7 @@ public class GameLauncher extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         String dir = System.getProperty("user.dir") + "\\src\\main\\resources\\additional\\AppIconNightWalk.png";
-        System.out.println(dir);
+        //System.out.println(dir);
 
         //setting the stage and scene
         primaryStage.setTitle("Night Walk");
