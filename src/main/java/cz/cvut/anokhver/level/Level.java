@@ -5,6 +5,9 @@ import cz.cvut.anokhver.enteties.Star;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 
+import java.io.File;
+//import java.nio.file.Path;
+//import java.nio.file.Paths;
 import java.util.List;
 
 public class Level {
@@ -17,7 +20,9 @@ public class Level {
     public Level(Integer id) {
         this.id = id;
         this.map = new Tilemap(40, 20, id);
-        String dir = System.getProperty("user.dir") + "\\src\\main\\resources\\level" + id.toString();
+        // Probably easier to work with: Path dirPath = Paths.get(System.getProperty("user.dir"), "src", "main", "resources", "level" + id);
+        // String dir = dirPath.toString();
+        String dir = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main"  + File.separator + "resources" + File.separator + "level" + id.toString();
         map.readMap(dir);
     }
 
