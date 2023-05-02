@@ -46,16 +46,12 @@ public class GameLogic {
         }
 
         Level first_level = new Level(1);
-
-        Canvas canvas = new Canvas(800, 600);
-        //first_level.drawTileMap(canvas);
-
+        Canvas canvas = new Canvas(1000, 1000);
+        first_level.drawTileMap(canvas);
         Pane pane = new Pane(canvas);
-
         Scene scene = new Scene(pane);
         stage.setScene(scene);
-
-// Show the Stage
+        // Show the Stage
         stage.show();
 
     }

@@ -6,16 +6,16 @@ import static cz.cvut.anokhver.level.SingleTile.loadImageForTile;
 import javafx.scene.image.Image;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Tilemap {
-    private SingleTile[][] tiles;
+    private final SingleTile[][] tiles;
     private int width;
     private int height;
 
     public Tilemap(Integer width, Integer height, Integer id) {
+        this.width = width;
+        this.height = height;
         tiles = new SingleTile[width][height];
     }
 
@@ -38,9 +38,8 @@ public class Tilemap {
                 for (String s : line.split("")) {
                     // Create a new Tile object based on the character read from the file
                     // and add it to the Tilemap
-
                     Image image = loadImageForTile(s);
-                    SingleTile tile = new SingleTile(image, x, y, 30, 30);
+                    SingleTile tile = new SingleTile(image, x, y, 40, 60);
                     this.setTile(x, y, tile);
                     x++;
                 }

@@ -16,10 +16,9 @@ public class Level {
 
     public Level(Integer id) {
         this.id = id;
-        this.map = new Tilemap(43,18, id);
+        this.map = new Tilemap(40, 20, id);
         String dir = System.getProperty("user.dir") + "\\src\\main\\resources\\level" + id.toString();
-        //map.readMap(dir);
-
+        map.readMap(dir);
     }
 
     private void startLevel(){
@@ -27,11 +26,15 @@ public class Level {
     }
 
     public void drawTileMap(Canvas canvas) {
+        System.out.println("Staeted rendered" + String.valueOf(map.getWidth()) + " " + String.valueOf(map.getHeight()));
+
         GraphicsContext gc = canvas.getGraphicsContext2D();
         for (int i = 0; i < map.getWidth(); i++) {
+            System.out.println("i rendered " + String.valueOf(i));
             for (int j = 0; j < map.getHeight(); j++) {
                 SingleTile tile = map.getTile(i, j);
                 tile.render(gc);
+                System.out.println("i rendered JJJJJJ" + String.valueOf(j));
             }
         }
     }

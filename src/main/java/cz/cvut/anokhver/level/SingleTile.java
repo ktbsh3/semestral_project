@@ -3,6 +3,8 @@ package cz.cvut.anokhver.level;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
+import java.io.File;
+
 public class SingleTile{
     private final Image image;
     private final int x;
@@ -19,14 +21,18 @@ public class SingleTile{
     }
 
     public void render(GraphicsContext gc) {
-        gc.drawImage(image, x, y, width, height);
+        int y_actuall = height*y;
+        if(y_actuall != 0) y_actuall -= 20*y;
+        gc.drawImage(image, width*x, y_actuall, width, height);
     }
     public static Image loadImageForTile(String tileChar) {
-        String dir = System.getProperty("user.dir") + "\\src\\main\\resources\\tiles" + "\\" + tileChar + ".png";
-        System.out.println(dir);
-        return new Image(dir);
+        String dir = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + "tiles" + File.separator + tileChar + ".png";
+        //System.out.println(dir);
+
+        File file = new File(dir);
+        return new Image(file.toURI().toString());
     }
-    // other methods as needed
+
 }
 
 
